@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-//#include "ListNode.h"
 using namespace std;
 
 template <typename T>
@@ -108,24 +107,19 @@ T DoublyLinkedList<T>::remove(int key)
 }
 
 template <typename T>
-int DoublyLinkedList<T>::find(int value)
-{
+int DoublyLinkedList<T>::find(int value) {
     int i = -1;
     ListNode<T> *current = front;
-    while(current != 0)
-    {
+    while(current != 0) {
         ++i;
-        if(current->data == value)
-        {
+        if(current->data == value) {
             break;
         }
-        else
-        {
+        else {
             current = current->next;
         }
     }
-    if(current == 0)
-    {
+    if(current == 0) {
         //Does not exist in list
         i = -1;
     }
@@ -166,7 +160,7 @@ T DoublyLinkedList<T>::removeFront() {
         cout << "ERROR" << endl;
     }
 
-    if(front->next = 0){
+    if(front->next == 0){
         back = 0;
     } else {
         front->next->prev = 0;
