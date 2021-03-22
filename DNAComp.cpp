@@ -5,23 +5,36 @@
 
 using namespace std;
 
+//Constructor
 DNAComp::DNAComp() {
+    //Creates a stack of char
     myStack = new NTStack<char>();
     comp = "";
 }
 
+//Destructor
 DNAComp::~DNAComp() {
     delete myStack;
 }
 
+//Creates a complement of the DNA input string
 string DNAComp::complement(string input) {
+    //If the stack is not empty, then it pops until its empty
+    //avoids previous stacks messing with the new stacks
      while (myStack->isEmpty() == false) {
         myStack->pop();
     }
+
+    //temporary string for complement
     string comp = "";
+
+    //Loops through the input
+    //iterates through each character and adds to temporary string 
     for (int i = 0; i < input.size(); ++i) {
         if (input[i] == 'A') {
             comp += 'T';
+            //Pushes to the stack so that when we get the reverse, we can just call pop
+            //This will reverse it since stack is LIFO
             myStack->push('T');
         }
         else if (input[i] == 'T') {
@@ -37,24 +50,26 @@ string DNAComp::complement(string input) {
             myStack->push('G');
         }
     }
-    //myStack->printStack(false);
-
-    // cout << "COMPLEMENT " << comp << endl;
     return comp;
 }
 
+//Returns the reverse complement of the DNA
 string DNAComp::reverseComplement(string input) {
+    //Checks if stack is empty
+    //If not, makes it empty
      while (myStack->isEmpty() == false) {
         myStack->pop();
     }
 
+    //temp string for reverse string 
     string reverse = "";
+
+    //Calls the complement function so that it creates the stack
     complement(input);
-    myStack->printStack(false);
+
     for (int i = 0; i < input.size() - 1; ++i) {
+        //Since we have a stack of the input, using pop will get you the reverse
         reverse += myStack->pop();
-        cout << "R: " << reverse << endl;
     }
-    cout << "REVERSE " << reverse << endl;
     return reverse;
 }

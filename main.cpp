@@ -25,25 +25,35 @@ int main(int argc, char **argv) {
     //Prompts the user for what to be calculated
     cout << "Enter operands and operators in postfix notification. "<< endl;
     cout << "Make sure there is a space between each operator and operand. " << endl;
+
+    //Gets the operators/operand
     getline(cin, input);
+
+    //Creates insatnce of RPN calculator class
     RPNCalc* rpn = new RPNCalc();
+
+    //Displays answer
     cout << "ANSWER: " << rpn->calculate(input) << endl;
+
     delete rpn;
   }
+
+  //If the users enters DNA mode
   else if (mode == "DNA") {
+    //stores input
     string input;
+    //stores dna sequence
     string sequence;
     //Prompts the user for sequence
     cout << "Enter file name for DNA sequence: " << endl;
     cin >> input;
+
+    //New instance of file processor class is created
     FileProcessor* file = new FileProcessor();
+
+    //Calls the function in file processor class
     sequence = file->getFile(input);
-    //cout << sequence << endl;
-    // DNAComp* dna = new DNAComp();
-    // cout << "Complement: " << dna->complement(input) << endl;
-    // cout << "Reverse Complement: " << dna->reverseComplement(input) << endl;
-    // delete dna;
-    // delete file
+
   } 
   else {
     cout << "Invalid Input" << endl;

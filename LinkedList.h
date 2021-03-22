@@ -68,11 +68,11 @@ template <typename T>
 DoublyLinkedList<T>::~DoublyLinkedList() {
     //Lets build some character
     //what do we do here
-
 }
 
 template <typename T>
 bool DoublyLinkedList<T>::isEmpty(){
+    //Checks if the front and back are pointing to null
     if ((front == 0) && (back == 0)) {
         return true;
     }

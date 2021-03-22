@@ -45,11 +45,15 @@ string FileProcessor::getFile(string inputFile) {
    //Loops and gets each sentence, line by line
    //Stores the line string into the variable fileSentence
    string temp = "";
+   
+   //iterates through the file
    while(getline(inFS, fileSentence)) {
-    //  cout << "File sentence " << fileSentence << endl;
-    //  cout << "DNA from file " << fileSentence << endl;
+     //All of the operations here outputs to dnaoutput.txt
+     //Original sequence
      outFS << "Original: " << fileSentence << endl;
+     //Complement
      outFS << "Complemenent: " << dna->complement(fileSentence) << endl;
+     //Reverse Complement
      outFS << "Reverse Complement: " << dna->reverseComplement(fileSentence) << '\n' << endl;
      
    }

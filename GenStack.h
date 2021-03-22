@@ -2,7 +2,6 @@
 #define GENSTACK_H
 
 #include "LinkedList.h"
-//#include "ListNode.h"
 
 template <typename T>
 class NTStack{
@@ -28,6 +27,8 @@ private:
 
 };
 
+//LinkedList Stack
+//Uses functions in the linkedlist class
 template <typename T>
 NTStack<T>::NTStack(){
     linkedlist = new DoublyLinkedList<T>;
