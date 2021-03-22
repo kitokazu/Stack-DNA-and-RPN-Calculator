@@ -49,6 +49,7 @@ bool NTStack<T>::isFull(){
 
 template <typename T>
 bool NTStack<T>::isEmpty(){
+  return linkedlist->isEmpty();
 }
 
 template <typename T>

@@ -7,6 +7,7 @@ using namespace std;
 
 DNAComp::DNAComp() {
     myStack = new NTStack<char>();
+    comp = "";
 }
 
 DNAComp::~DNAComp() {
@@ -14,7 +15,10 @@ DNAComp::~DNAComp() {
 }
 
 string DNAComp::complement(string input) {
-    string comp;
+     while (myStack->isEmpty() == false) {
+        myStack->pop();
+    }
+    string comp = "";
     for (int i = 0; i < input.size(); ++i) {
         if (input[i] == 'A') {
             comp += 'T';
@@ -33,14 +37,24 @@ string DNAComp::complement(string input) {
             myStack->push('G');
         }
     }
+    //myStack->printStack(false);
+
+    // cout << "COMPLEMENT " << comp << endl;
     return comp;
 }
 
 string DNAComp::reverseComplement(string input) {
-    string reverse;
-    complement(input);
-    for (int i = 0; i < input.size(); ++i) {
-        reverse += myStack->pop();
+     while (myStack->isEmpty() == false) {
+        myStack->pop();
     }
+
+    string reverse = "";
+    complement(input);
+    myStack->printStack(false);
+    for (int i = 0; i < input.size() - 1; ++i) {
+        reverse += myStack->pop();
+        cout << "R: " << reverse << endl;
+    }
+    cout << "REVERSE " << reverse << endl;
     return reverse;
 }

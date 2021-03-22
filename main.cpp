@@ -3,6 +3,7 @@
 #include <cctype>
 #include "GenStack.h"
 #include "LinkedList.h"
+#include "FileProcessor.h"
 #include "DNAComp.H"
 #include "RPNCalc.h"
 
@@ -31,13 +32,18 @@ int main(int argc, char **argv) {
   }
   else if (mode == "DNA") {
     string input;
+    string sequence;
     //Prompts the user for sequence
-    cout << "Enter DNA sequence: " << endl;
+    cout << "Enter file name for DNA sequence: " << endl;
     cin >> input;
-    DNAComp* dna = new DNAComp();
-    cout << "Complement: " << dna->complement(input) << endl;
-    cout << "Reverse Complement: " << dna->reverseComplement(input) << endl;
-    delete dna;
+    FileProcessor* file = new FileProcessor();
+    sequence = file->getFile(input);
+    //cout << sequence << endl;
+    // DNAComp* dna = new DNAComp();
+    // cout << "Complement: " << dna->complement(input) << endl;
+    // cout << "Reverse Complement: " << dna->reverseComplement(input) << endl;
+    // delete dna;
+    // delete file
   } 
   else {
     cout << "Invalid Input" << endl;

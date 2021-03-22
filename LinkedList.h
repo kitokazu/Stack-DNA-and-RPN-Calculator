@@ -34,6 +34,8 @@ ListNode<T>::~ListNode() {
     //More code that needs to go here
 }
 
+
+//DoublyLinkedList Template Class
 template <typename T>
 class DoublyLinkedList {
     private:
@@ -45,6 +47,7 @@ class DoublyLinkedList {
         ~DoublyLinkedList();
         void insertFront(T data);
         void insertBack(T data);
+        void clearList();
         T removeFront();
         T removeBack();
         T remove(int key);
@@ -57,8 +60,8 @@ class DoublyLinkedList {
 template <typename T>
 DoublyLinkedList<T>::DoublyLinkedList() {
     listSize = 0;
-    front = NULL;
-    back = NULL;
+    front = 0;
+    back = 0;
 };
 
 template <typename T>
@@ -66,6 +69,14 @@ DoublyLinkedList<T>::~DoublyLinkedList() {
     //Lets build some character
     //what do we do here
 
+}
+
+template <typename T>
+bool DoublyLinkedList<T>::isEmpty(){
+    if ((front == 0) && (back == 0)) {
+        return true;
+    }
+    return false;
 }
 
 template <typename T>
@@ -156,8 +167,9 @@ T DoublyLinkedList<T>::removeFront() {
 
     //check if empty
     //throw exception
-    if(front == 0) {
+    if ((front == 0) && (back == 0)) {
         cout << "ERROR" << endl;
+        return 0;
     }
 
     if(front->next == 0){

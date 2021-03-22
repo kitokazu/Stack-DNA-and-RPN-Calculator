@@ -15,6 +15,7 @@ class DNAComp {
         string complement(string input);
         string reverseComplement(string input);
     private:
+        string comp;
 };
 
 #endif
