@@ -14,3 +14,4 @@ Notes:
 Using the stack made the assignment much easier and better to understand
 The user must specify RPN or DNA in the command line parameter
 When doing the RPN calculator, make sure there are spaces between each opeartor and operand
+When doing the DNA, make sure to have a file with the DNA sequences
